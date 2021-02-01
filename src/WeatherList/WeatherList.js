@@ -6,12 +6,15 @@ import { fetchWeather } from '../APIFile/APIFile';
 
 class WeatherList extends Component {
   state = {
-    searchParam: 'Manchester',
+    searchParam: "Liverpool",
+    name: "",
+    weather: "",
   };
   componentDidMount() {
     console.log('mounting');
     fetchWeather(this.state.searchParam).then((result) => {
-      console.log(result);
+      console.log(result.weather[0].main)
+      this.setState({name: result.name, weather: result.weather[0].main });
     });
   }
   render() {
@@ -19,7 +22,7 @@ class WeatherList extends Component {
     return (
       <main className="weather-list-container">
         <p>this is the weather list</p>
-        <WeatherCard />
+        <WeatherCard name={this.state.name} weather={this.state.weather}/>
         <WeatherCard />
       </main>
     );
