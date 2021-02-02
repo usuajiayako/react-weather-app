@@ -7,10 +7,10 @@ import SearchEngine from '../SearchEngine/SearchEngine';
 
 class WeatherList extends Component {
   state = {
-    searchParam: 'Leeds',
+    searchParam: 'Liverpool',
     name: '',
     weather: '',
-    info: '',
+    icon: '',
     wind: '',
     weatherAttr: {
       feelsLike: 0,
@@ -24,10 +24,11 @@ class WeatherList extends Component {
     // console.log('mounting');
     fetchWeather(this.state.searchParam)
       .then((result) => {
+        console.log(result)
         this.setState({
           name: result.name,
           weather: result.weather[0].main,
-          info: result.weather[0].description,
+          icon: result.weather[0].icon,
           wind: result.wind.speed,
           feelsLike: result.main.feels_like,
           humidity: result.main.humidity,
@@ -46,22 +47,24 @@ class WeatherList extends Component {
         this.setState({
           name: result.name,
           weather: result.weather[0].main,
-          info: result.weather[0].description,
+          icon: result.weather[0].icon,
           wind: result.wind.speed,
           feelsLike: result.main.feels_like,
           humidity: result.main.humidity,
           temp: result.main.temp,
         });
         this.setState({ error: false });
+        console.log(this.state)
       })
       .catch((err) => {
-        this.setState({ error: true });
+        this.setState({  error: true });
         console.log(err);
       });
   };
 
   render() {
     // console.log('rendering');
+    console.log(this.state)
     return (
       <main className="weather-list-container">
         <SearchEngine updatePlace={this.updatePlace} />
@@ -71,6 +74,7 @@ class WeatherList extends Component {
           <WeatherCard
             name={this.state.name}
             weather={this.state.weather}
+            icon={this.state.icon}
             desc={this.state.description}
             wind={this.state.wind}
             feelsLike={this.state.feelsLike}
