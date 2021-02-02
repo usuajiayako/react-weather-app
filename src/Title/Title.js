@@ -1,9 +1,9 @@
 const Title = () => {
   return (
     <header>
-      <h1>Reacti Weather</h1>
+      <h1>Weather Watcher</h1>
     </header>
-  )
-}
+  );
+};
 
 export default Title;

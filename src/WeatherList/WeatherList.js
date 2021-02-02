@@ -7,7 +7,7 @@ import SearchEngine from '../SearchEngine/SearchEngine';
 
 class WeatherList extends Component {
   state = {
-    searchParam: 'Liverpool',
+    searchParam: 'Leeds',
     name: '',
     weather: '',
     info: '',
@@ -16,8 +16,6 @@ class WeatherList extends Component {
       feelsLike: 0,
       humidity: 0,
       temp: 0,
-      minTemp: 0,
-      maxTemp: 0,
     },
     error: false,
   };
@@ -31,6 +29,9 @@ class WeatherList extends Component {
           weather: result.weather[0].main,
           info: result.weather[0].description,
           wind: result.wind.speed,
+          feelsLike: result.main.feels_like,
+          humidity: result.main.humidity,
+          temp: result.main.temp,
         });
       })
       .catch((err) => {
@@ -47,6 +48,9 @@ class WeatherList extends Component {
           weather: result.weather[0].main,
           info: result.weather[0].description,
           wind: result.wind.speed,
+          feelsLike: result.main.feels_like,
+          humidity: result.main.humidity,
+          temp: result.main.temp,
         });
         this.setState({ error: false });
       })
@@ -69,6 +73,9 @@ class WeatherList extends Component {
             weather={this.state.weather}
             desc={this.state.description}
             wind={this.state.wind}
+            feelsLike={this.state.feelsLike}
+            humidity={this.state.humidity}
+            temp={this.state.temp}
           />
         )}
       </main>
