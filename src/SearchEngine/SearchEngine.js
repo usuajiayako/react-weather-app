@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchEngine.css';
 
 class SearchEngine extends Component {
   state = {
@@ -16,12 +17,17 @@ class SearchEngine extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          placeholder="search weather"
-          onChange={this.handleChange}
-        ></input>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <label className="label">
+          Location:
+          <input
+            className="input"
+            placeholder="Search weather"
+            onChange={this.handleChange}
+          ></input>
+        </label>
         <button
+          className="submit"
           type="submit"
           disabled={this.state.newSearchParam.length < 4 ? true : false}
         >

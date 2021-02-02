@@ -3,13 +3,22 @@ import './WeatherCard.css';
 const WeatherCard = (props) => {
   return (
     <div className="weather-card-container">
-      <h3>{props.name}</h3>
-      <p>{props.weather}</p>
-      <p>{props.desc}</p>
-      <p>Wind Speed {props.wind}mph</p>
-      <p>Feels Like: {props.feelsLike}</p>
-      <p>Humidity: {props.humidity}</p>
-      <p>Temp: {props.temp}</p>
+      <h3 className="name">{props.name}</h3>
+      <p>
+        <span>Weather:</span> {props.weather}
+      </p>
+      <p>
+        <span>Wind Speed</span> {props.wind}mph
+      </p>
+      <p>
+        <span>Feels Like:</span> {props.feelsLike}
+      </p>
+      <p>
+        <span>Humidity:</span> {props.humidity}
+      </p>
+      <p>
+        <span>Temp:</span> {props.temp}
+      </p>
     </div>
   );
 };

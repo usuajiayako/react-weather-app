@@ -1,3 +1,7 @@
 .App {
-  background-image: linear-gradient(rgb(12, 75, 152), rgb(62, 164, 201));
+  height: 100vh;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: rgb(38, 87, 138);
+  text-align: center;
 }
