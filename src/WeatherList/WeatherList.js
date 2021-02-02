@@ -5,6 +5,7 @@ import WeatherCard from '../WeatherCard/WeatherCard';
 import { fetchWeather } from '../APIFile/APIFile';
 import SearchEngine from '../SearchEngine/SearchEngine';
 
+
 class WeatherList extends Component {
   state = {
     searchParam: 'Liverpool',
@@ -21,7 +22,6 @@ class WeatherList extends Component {
     // console.log('mounting');
     fetchWeather(this.state.searchParam)
       .then((result) => {
-        console.log(result)
         this.setState({
           name: result.name,
           weather: result.weather[0].main,
@@ -49,7 +49,6 @@ class WeatherList extends Component {
           temp: Math.round(result.main.temp),
         });
         this.setState({ error: false });
-        console.log(this.state)
       })
       .catch((err) => {
         this.setState({  error: true });
@@ -59,7 +58,6 @@ class WeatherList extends Component {
 
   render() {
     // console.log('rendering');
-    console.log(this.state)
     return (
       <main className="weather-list-container">
         <SearchEngine updatePlace={this.updatePlace} />
