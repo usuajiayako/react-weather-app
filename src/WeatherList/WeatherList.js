@@ -10,13 +10,10 @@ class WeatherList extends Component {
     searchParam: 'Liverpool',
     name: '',
     weather: '',
-    icon: '',
-    wind: '',
-    weatherAttr: {
-      feelsLike: 0,
-      humidity: 0,
-      temp: 0,
-    },
+    wind: "",
+    feelsLike: 0,
+    humidity: 0,
+    temp: 0,
     error: false,
   };
 
@@ -28,11 +25,10 @@ class WeatherList extends Component {
         this.setState({
           name: result.name,
           weather: result.weather[0].main,
-          icon: result.weather[0].icon,
-          wind: result.wind.speed,
-          feelsLike: result.main.feels_like,
+          wind: Math.round(result.wind.speed),
+          feelsLike: Math.round(result.main.feels_like),
           humidity: result.main.humidity,
-          temp: result.main.temp,
+          temp: Math.round(result.main.temp),
         });
       })
       .catch((err) => {
@@ -47,11 +43,10 @@ class WeatherList extends Component {
         this.setState({
           name: result.name,
           weather: result.weather[0].main,
-          icon: result.weather[0].icon,
-          wind: result.wind.speed,
-          feelsLike: result.main.feels_like,
+          wind: Math.round(result.wind.speed),
+          feelsLike: Math.round(result.main.feels_like),
           humidity: result.main.humidity,
-          temp: result.main.temp,
+          temp: Math.round(result.main.temp),
         });
         this.setState({ error: false });
         console.log(this.state)

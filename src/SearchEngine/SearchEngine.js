@@ -9,6 +9,7 @@ class SearchEngine extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.updatePlace(this.state.newSearchParam);
+    this.setState({ newSearchParam: "" });
   };
 
   handleChange = (event) => {
@@ -16,6 +17,7 @@ class SearchEngine extends Component {
   };
 
   render() {
+    console.log("inside SearchEngine render")
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <label className="label">

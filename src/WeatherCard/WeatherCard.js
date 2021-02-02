@@ -7,10 +7,9 @@ const WeatherCard = (props) => {
       <h3 className="name">{props.name}</h3>
       <p>
         <span>Weather:</span> {props.weather}
-        <img src={props.img} alt={props.name}/>
       </p>
       <p>
-        <span>Wind Speed</span> {props.wind}mph
+        <span>Wind Speed:</span> {props.wind}mph
       </p>
       <p>
         <span>Feels Like:</span> {props.feelsLike}°C
