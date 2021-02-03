@@ -1,7 +1,6 @@
 import './WeatherCard.css';
 
 const WeatherCard = (props) => {
-  console.log(props)
   return (
     <div className="weather-card-container">
       <h3 className="name">{props.name}</h3>

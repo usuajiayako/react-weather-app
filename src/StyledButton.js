@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
   margin-top: 20px;
-  background: ${(props) => ( props.theme? "#F4B85D" : "rgb(38, 87, 138")};
+  background: ${(props) => (props.primary ? "#F4B85D" : "#3AA4EA" )};
   `;
 
 export default StyledButton;

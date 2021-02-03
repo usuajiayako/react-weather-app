@@ -17,7 +17,6 @@ class SearchEngine extends Component {
   };
 
   render() {
-    console.log("inside SearchEngine render")
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <label className="label">

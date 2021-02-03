@@ -1,25 +1,29 @@
 import './App.css';
 import Title from "./Title/Title";
 import WeatherList from "./WeatherList/WeatherList";
-import StyledButton from "./Theme";
+import StyledButton from "./StyledButton";
 import React, {Component} from "react";
+import { GlobalStyles } from "./Global";
 
 class App extends Component {
   state = {
-    theme: true,
+    primary: true,
   }
+
+  changeTheme = () => {
+    this.setState(({ primary }) => ({ primary: !primary }))
+  }
+
   render(){
     return(
     <div className="App">
-      <StyledButton theme={this.state.theme} onClick={this.changeTheme}>Change Theme Colour</StyledButton>
+      <GlobalStyles primary={this.state.primary} />
+      <StyledButton primary={this.state.primary} onClick={this.changeTheme}>Change Theme Colour</StyledButton>
       <Title />
       <WeatherList />
     </div>
     )}
 
-  changeTheme(event) {
-    this.setState((currentState) => {currentState.state.theme = false})
-  }
   }
 
 export default App;
