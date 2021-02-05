@@ -25,6 +25,7 @@ class SearchEngine extends Component {
             className="input"
             placeholder="Search weather"
             onChange={this.handleChange}
+            value={this.state.newSearchParam}
           ></input>
         </label>
         <button
